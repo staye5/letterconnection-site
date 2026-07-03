@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:sticky;top:0;z-index:50;background:rgba(15,31,58,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(153,198,235,.16)">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px;max-width:1180px;margin:0 auto">
+    <a href="index.html" aria-label="Letter Connection, Stafford Mail Center — home" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+      <img src="assets/logo-badge.png" alt="Letter Connection logo" style="width:46px;height:46px;border-radius:50%;display:block;box-shadow:0 4px 14px -4px rgba(0,0,0,.4)">
+      <svg viewBox="0 0 210 62" height="44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Letter Connection — Ship, Send, Connect, since 1984">
+        <defs>
+          <linearGradient id="hWord" x1="0" y1="4" x2="0" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#99C6EB"></stop></linearGradient>
+        </defs>
+        <text x="0" y="20" font-family="Manrope,sans-serif" font-weight="800" font-size="21" letter-spacing="-.5" fill="url(#hWord)">Letter</text>
+        <text x="0" y="42" font-family="Manrope,sans-serif" font-weight="800" font-size="21" letter-spacing="-.5" fill="url(#hWord)">Connection</text>
+        <text x="0" y="58" font-family="Manrope,sans-serif" font-weight="700" font-size="8.5" letter-spacing="1.6" fill="#99C6EB">SHIP • SEND • CONNECT</text>
+      </svg>
+    </a>
+    <nav class="lc-navlinks" style="display:flex;gap:24px;align-items:center">
+      <a href="index.html" style="color:{{ homeColor }};border-bottom:2px solid {{ homeBorder }};padding-bottom:2px;font-family:Manrope,sans-serif;font-weight:600;font-size:.95rem;text-decoration:none" style-hover="color:#fff">Home</a>
+      <a href="pricing.html" style="color:{{ pricingColor }};border-bottom:2px solid {{ pricingBorder }};padding-bottom:2px;font-family:Manrope,sans-serif;font-weight:600;font-size:.95rem;text-decoration:none" style-hover="color:#fff">Pricing</a>
+      <a href="services.html" style="color:{{ servicesColor }};border-bottom:2px solid {{ servicesBorder }};padding-bottom:2px;font-family:Manrope,sans-serif;font-weight:600;font-size:.95rem;text-decoration:none" style-hover="color:#fff">Services</a>
+      <a href="faq.html" style="color:{{ faqColor }};border-bottom:2px solid {{ faqBorder }};padding-bottom:2px;font-family:Manrope,sans-serif;font-weight:600;font-size:.95rem;text-decoration:none" style-hover="color:#fff">FAQ</a>
+      <a href="reserve.html" style="color:#CFE0F7;border-bottom:2px solid transparent;padding-bottom:2px;font-family:Manrope,sans-serif;font-weight:600;font-size:.95rem;text-decoration:none" style-hover="color:#fff">Reserve</a>
+    </nav>
+    <a href="tel:+12814996245" style="display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#3A86C8,#0F4C81);color:#fff;font-family:Manrope,sans-serif;font-weight:700;padding:.6rem 1.1rem;border-radius:999px;font-size:.92rem;text-decoration:none;white-space:nowrap" style-hover="box-shadow:0 10px 24px -10px rgba(58,134,200,.9)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      281-499-6245
+    </a>
+    <button class="lc-menubtn" aria-label="Menu" onClick="{{ toggleMenu }}" style="display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+    </button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav style="display:flex;flex-direction:column;gap:4px;padding:10px 24px 18px;background:rgba(15,31,58,.97);border-top:1px solid rgba(153,198,235,.14)">
+      <a href="index.html" style="color:#CFE0F7;font-family:Manrope,sans-serif;font-weight:600;font-size:1.05rem;text-decoration:none;padding:10px 0">Home</a>
+      <a href="pricing.html" style="color:#CFE0F7;font-family:Manrope,sans-serif;font-weight:600;font-size:1.05rem;text-decoration:none;padding:10px 0">Pricing</a>
+      <a href="services.html" style="color:#CFE0F7;font-family:Manrope,sans-serif;font-weight:600;font-size:1.05rem;text-decoration:none;padding:10px 0">Services</a>
+      <a href="faq.html" style="color:#CFE0F7;font-family:Manrope,sans-serif;font-weight:600;font-size:1.05rem;text-decoration:none;padding:10px 0">FAQ</a>
+      <a href="reserve.html" style="color:#CFE0F7;font-family:Manrope,sans-serif;font-weight:600;font-size:1.05rem;text-decoration:none;padding:10px 0">Reserve a mailbox</a>
+    </nav>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: &quot;1180px&quot;, &quot;height&quot;: &quot;80px&quot; },
+  &quot;active&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;home&quot;, &quot;pricing&quot;, &quot;services&quot;, &quot;faq&quot;], &quot;default&quot;: &quot;home&quot;, &quot;tsType&quot;: &quot;'home' | 'pricing' | 'services' | 'faq'&quot; }
+}">
+class Component extends DCLogic {
+  state = { menuOpen: false };
+
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const c = (k) => (active === k ? '#FFFFFF' : '#CFE0F7');
+    const b = (k) => (active === k ? '#99C6EB' : 'transparent');
+    return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      homeColor: c('home'), homeBorder: b('home'),
+      pricingColor: c('pricing'), pricingBorder: b('pricing'),
+      servicesColor: c('services'), servicesBorder: b('services'),
+      faqColor: c('faq'), faqBorder: b('faq')
+    };
+  }
+}
+</script>
+</body>
+</html>
