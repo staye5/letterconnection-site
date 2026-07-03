@@ -1,0 +1,132 @@
+/* Letter Connection — animation layer (style: Lively)
+   No-JS or reduced-motion: nothing here hides content. */
+
+html[data-anim]{
+  --rise:14px; --adur:.7s; --aease:cubic-bezier(.22,1,.36,1);
+}
+html[data-anim="calm"]{ --rise:0px; --adur:.9s; }
+html[data-anim="lively"]{ --rise:28px; --adur:.85s; }
+
+/* scroll / load reveals */
+html[data-anim] [data-reveal]{
+  opacity:0;
+  transform:translateY(var(--rise));
+  transition:opacity var(--adur) ease, transform var(--adur) var(--aease);
+  transition-delay:var(--d,0s);
+  will-change:opacity,transform;
+}
+html[data-anim] [data-reveal].in{ opacity:1; transform:none; }
+
+/* hero headline word stagger (lively only) */
+html[data-anim="lively"] h1 .aw{
+  display:inline-block; opacity:0; transform:translateY(.55em) rotate(1.5deg);
+  transition:opacity .55s ease, transform .7s var(--aease);
+  transition-delay:var(--d,0s);
+}
+html[data-anim="lively"] h1.in .aw{ opacity:1; transform:none; }
+
+/* eyebrow tick draws in */
+html[data-anim] .eyebrow::before{ transform-origin:left center; }
+html[data-anim] [data-reveal].in .eyebrow::before,
+html[data-anim] .eyebrow[data-reveal].in::before{
+  animation:lc-draw .7s var(--aease) both;
+  animation-delay:calc(var(--d,0s) + .15s);
+}
+@keyframes lc-draw{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+
+/* service icons pop in (lively) */
+html[data-anim="lively"] .card.in .ico{
+  animation:lc-pop .55s var(--aease) both;
+  animation-delay:calc(var(--d,0s) + .25s);
+}
+@keyframes lc-pop{ 0%{ transform:scale(.4); opacity:0; } 70%{ transform:scale(1.08); } 100%{ transform:scale(1); opacity:1; } }
+
+/* hero address card floats gently (lively) */
+html[data-anim="lively"] .hero-card.in{ animation:lc-float 6s ease-in-out 1.4s infinite; }
+@keyframes lc-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+
+/* logo hover */
+html[data-anim] .brand-badge{ transition:transform .35s var(--aease); }
+html[data-anim] .brand:hover .brand-badge{ transform:rotate(-8deg) scale(1.08); }
+
+/* hover polish (balanced + lively) */
+html[data-anim] .ico{ transition:transform .25s var(--aease); }
+html[data-anim="balanced"] .card:hover .ico,
+html[data-anim="lively"] .card:hover .ico{ transform:scale(1.1) rotate(-4deg); }
+html[data-anim] .btn:active{ transform:translateY(0) scale(.97); }
+html[data-anim="balanced"] .btn-primary:hover,
+html[data-anim="lively"] .btn-primary:hover{ box-shadow:0 12px 26px -12px rgba(36,80,158,.55); }
+html[data-anim] .pill{ transition:transform .2s ease, border-color .2s ease; }
+html[data-anim="lively"] .pill:hover{ transform:translateY(-2px); border-color:var(--terra); }
+
+/* price card sheen — sweeps once on reveal, again on hover (lively) */
+html[data-anim="lively"] .price-card::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) 46%,transparent 60%);
+  transform:translateX(-120%);
+}
+html[data-anim="lively"] .price-card.in::after{ animation:lc-sheen 1.5s ease .7s 1; }
+html[data-anim="lively"] .price-card:hover::after{ animation:lc-sheen .9s ease 1; }
+@keyframes lc-sheen{ from{ transform:translateX(-120%); } to{ transform:translateX(120%); } }
+
+/* best-value term row */
+html[data-anim] .term-row.best{
+  background:var(--terra-soft); border-radius:10px;
+  padding-left:.8rem; padding-right:.8rem; margin-inline:-.8rem;
+}
+html[data-anim="lively"] .term-row.best.in-view{ animation:lc-pulse 1.6s ease 2 .6s; }
+@keyframes lc-pulse{ 50%{ box-shadow:0 0 0 5px rgba(193,116,58,.18); } }
+
+/* testimonial spotlight rotation */
+html[data-anim] .tcard{ transition:transform .45s var(--aease), border-color .45s ease, box-shadow .45s ease; }
+html[data-anim] .tcard.spot{
+  transform:translateY(-5px);
+  border-color:var(--navy);
+  box-shadow:0 22px 44px -26px rgba(36,80,158,.4);
+}
+
+/* FAQ open animation */
+html[data-anim] .faq summary::after{ transition:transform .25s ease; display:inline-block; }
+html[data-anim] .faq details[open] summary::after{ transform:rotate(45deg); content:"+"; }
+html[data-anim] .faq details[open] p{ animation:lc-fadeup .35s ease both; }
+@keyframes lc-fadeup{ from{ opacity:0; transform:translateY(-6px);} to{ opacity:1; transform:none;} }
+
+/* ambient motion: pause in calm */
+html[data-anim="calm"] .flight-plane{ display:none; }
+html[data-anim] .flight-line{ stroke-dashoffset:0; }
+
+/* carrier ticker scroll */
+html[data-anim] .ticker-track{ animation:lc-ticker 46s linear infinite; }
+html[data-anim] .ticker:hover .ticker-track{ animation-play-state:paused; }
+html[data-anim="calm"] .ticker-track{ animation:none; }
+@keyframes lc-ticker{ from{ transform:translateX(0); } to{ transform:translateX(-33.3333%); } }
+
+/* postmark ring stamps in around "Since 1984" */
+html[data-anim] .stat.postmark{ position:relative; }
+html[data-anim] .stat.postmark::before{
+  content:""; position:absolute; left:50%; top:50%;
+  width:112px; height:112px; margin:-56px 0 0 -56px;
+  border:2px dashed rgba(193,116,58,.5); border-radius:50%;
+  transform:rotate(-10deg); opacity:0; pointer-events:none;
+}
+html[data-anim] .stat.postmark.in::before{ animation:lc-stamp .45s cubic-bezier(.2,1.4,.4,1) .7s both; }
+@keyframes lc-stamp{ 0%{ opacity:0; transform:rotate(-24deg) scale(1.7); } 60%{ opacity:1; transform:rotate(-8deg) scale(.96); } 100%{ opacity:1; transform:rotate(-10deg) scale(1); } }
+
+/* envelope seals & flies off on form send */
+.env-fly{ position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; z-index:5; }
+.env{ position:relative; width:116px; height:78px; animation:lc-envfly 1.5s cubic-bezier(.5,-.2,.8,.6) .75s both; }
+.env-body{ position:absolute; inset:0; background:var(--navy); border-radius:9px; box-shadow:0 18px 40px -18px rgba(20,35,60,.5); }
+.env-body::after{ content:""; position:absolute; inset:0; border-radius:9px; background:linear-gradient(200deg,rgba(255,255,255,.16),transparent 55%); }
+.env-letter{ position:absolute; left:10px; right:10px; top:-16px; height:44px; background:#fff; border:1px solid var(--line); border-radius:4px; animation:lc-letter .45s ease both; }
+.env-flap{ position:absolute; left:0; right:0; top:0; height:42px; background:var(--navy-ink); border-radius:9px 9px 0 0; clip-path:polygon(0 0,100% 0,50% 100%); transform-origin:top center; transform:rotateX(180deg); animation:lc-flap .4s ease .45s both; }
+@keyframes lc-letter{ from{ transform:translateY(26px); opacity:0; } to{ transform:translateY(14px); opacity:1; } }
+@keyframes lc-flap{ to{ transform:rotateX(0deg); } }
+@keyframes lc-envfly{ 0%{ transform:translate(0,0) rotate(0) scale(1); opacity:1; } 100%{ transform:translate(360px,-320px) rotate(-16deg) scale(.4); opacity:0; } }
+
+@media(prefers-reduced-motion:reduce){
+  html[data-anim] [data-reveal]{ opacity:1; transform:none; transition:none; }
+  html[data-anim="lively"] h1 .aw{ opacity:1; transform:none; }
+  html[data-anim] .ticker-track{ animation:none; }
+  html[data-anim] .flight-plane{ display:none; }
+  html[data-anim="lively"] .hero-card.in{ animation:none; }
+}
