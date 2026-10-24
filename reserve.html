@@ -1,15 +1,20 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reserve a Mailbox | Letter Connection, Stafford TX</title>
-<meta name="robots" content="noindex">
-<link rel="canonical" href="https://letterconnection.com/index.html#reserve">
-<meta http-equiv="refresh" content="0; url=index.html#reserve">
-<script>location.replace('index.html#reserve');</script>
-</head>
-<body>
-<p style="font-family:system-ui;padding:2rem">Taking you to the reservation form… <a href="index.html#reserve">Continue</a>.</p>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Reserve a Letter Connection annual mailbox in Stafford and pay securely through Clover. Review the full signup total and complete setup at the store."><link rel="canonical" href="https://letterconnection.com/reserve.html"><title>Reserve a mailbox | Letter Connection</title>
+<style>
+:root{--navy:#0f1f3a;--blue:#2865a2;--sky:#afcbf1;--pale:#f4f7fa}*{box-sizing:border-box}body{margin:0;background:var(--pale);color:var(--navy);font:16px/1.6 Arial,sans-serif}.preview{background:#fff2cd;text-align:center;padding:8px 18px;font-size:13px}header,main,footer{max-width:1080px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{font-weight:700;font-size:22px}.sub{display:block;font-size:13px;font-weight:400;color:#526174}a{color:var(--blue)}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;padding:36px 0}h1{font:48px/1.12 Georgia,serif;margin:16px 0 24px}h2{font:27px/1.2 Georgia,serif;margin:0 0 20px}.eyebrow{color:var(--blue);font-weight:700;font-size:12px;letter-spacing:1.3px}.lead{font-size:19px;color:#526174}.card{background:white;padding:30px;border:1px solid #d6e1ec;border-radius:16px;box-shadow:0 12px 30px #0f1f3a08}.line{display:flex;justify-content:space-between;gap:15px;margin:14px 0}.total{border-top:1px solid #d6e1ec;padding-top:18px;font-weight:700;font-size:23px}.note{font-size:13px;color:#526174}.steps{padding-left:22px}.steps li{padding:9px 0}button,.button{display:block;width:100%;padding:16px;border:0;border-radius:8px;font-weight:700;font-size:16px;text-align:center;background:var(--navy);color:white;text-decoration:none;margin-top:20px}button:disabled{background:#d9e1ea;color:#526174}.check{display:flex;align-items:flex-start;gap:10px;font-size:14px;margin-top:20px}.check input{width:20px;height:20px;flex-shrink:0}footer{font-size:13px;color:#526174;border-top:1px solid #d6e1ec}@media(max-width:700px){.grid{grid-template-columns:1fr;gap:24px;padding-top:10px}h1{font-size:39px}header{align-items:flex-start}.brand{font-size:18px}header a{font-size:14px;white-space:nowrap}main{padding-top:0}.card{padding:24px}}
+</style></head><body>
+
+<header><div class="brand">Letter Connection<span class="sub">Stafford Mail Center</span></div><a href="tel:+12814996245">281-499-6245</a></header>
+<main><div class="grid"><section><span class="eyebrow">PRIVATE MAILBOXES IN STAFFORD</span><h1>Your own mailing address starts here.</h1><p class="lead">A private mailbox for your business or everyday mail, with local help at our Murphy Road store.</p><ul><li>A real Stafford mailing address</li><li>24/7 lobby access to your mail</li><li>Package receiving; collection and storage terms apply</li></ul><h2 style="margin-top:32px">How setup works</h2><ol class="steps"><li>Review the annual plan and complete your payment securely through Clover. Save your payment receipt.</li><li>Visit the store to complete identity verification and the mailbox agreement. Call first for the current document requirements.</li><li>Bring your Clover receipt to the store. We will verify payment and complete setup before assigning your mailbox address and access instructions.</li></ol><p class="note">Payment alone does not activate a mailbox or authorize use of an address. This reserves a mailbox plan, not an appointment time. Package collection may require staffed store hours.</p></section>
+<section class="card"><span class="eyebrow">NEW CUSTOMER • STANDARD MAILBOX</span><h2 style="margin-top:12px">One year of mailbox rental</h2><div class="line"><span>Annual mailbox rental</span><strong>$180.00</strong></div><div class="line"><span>One-time setup &amp; key fee</span><strong>$25.00</strong></div><div class="line"><span>Sales tax (8.25%)</span><strong>$16.91</strong></div><div class="line total"><span>Total</span><span>$221.91</span></div><p class="note">One payment for the initial annual plan and setup. This is a one-time payment, not automatic renewal. Ask us about recipient, package, storage and forwarding limits before paying.</p><label class="check"><input id="ack" type="checkbox"><span>I understand that I must finish the required mailbox setup before using my new address.</span></label><button id="pay" type="button" disabled>Continue to Clover — $221.91</button><p id="status" class="note" role="status">Complete the acknowledgment above to continue. Card details are entered only on Clover.</p><a href="tel:+12814996245" class="button" style="background:var(--blue)">Call 281-499-6245</a><p class="note">New standard mailbox accounts only. Existing customers: call for your renewal amount. Questions about setup or cancellation? Speak with the store before paying.</p></section></div></main>
+<footer>435 Murphy Rd Ste B-1, Stafford, TX 77477<br><a href="https://letterconnection.com">letterconnection.com</a> · <a href="mailto:admin@letterconnection.com">admin@letterconnection.com</a></footer>
+<script>
+// Replace only with the exact verified persistent Clover payment link for this store.
+// Never embed an API key or a short-lived Hosted Checkout session in this file.
+const VERIFIED_CLOVER_PAYMENT_URL = 'https://link.clover.com/urlshortener/CpnqmZ';
+const ack=document.getElementById('ack'),pay=document.getElementById('pay');
+function verifiedUrl(value){try{const u=new URL(value);return u.protocol==='https:'&&(u.hostname==='clover.com'||u.hostname.endsWith('.clover.com'))&&!u.username&&!u.password?u.href:null}catch{return null}}
+const destination=verifiedUrl(VERIFIED_CLOVER_PAYMENT_URL);
+function refresh(){if(!destination)return;pay.textContent='Continue to Clover — $221.91';pay.disabled=!ack.checked;document.getElementById('status').textContent='Clover securely handles your card details. Your mailbox activates after required setup.'}
+ack.addEventListener('change',refresh);pay.addEventListener('click',()=>{if(destination&&ack.checked)window.location.assign(destination)});refresh();
+</script><noscript><p style="padding:24px;text-align:center">Please call <a href="tel:+12814996245">281-499-6245</a> to arrange your mailbox.</p></noscript></body></html>
