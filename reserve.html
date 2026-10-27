@@ -16,5 +16,5 @@ const ack=document.getElementById('ack'),pay=document.getElementById('pay');
 function verifiedUrl(value){try{const u=new URL(value);return u.protocol==='https:'&&(u.hostname==='clover.com'||u.hostname.endsWith('.clover.com'))&&!u.username&&!u.password?u.href:null}catch{return null}}
 const destination=verifiedUrl(VERIFIED_CLOVER_PAYMENT_URL);
 function refresh(){if(!destination)return;pay.textContent='Continue to Clover — $194.85';pay.disabled=!ack.checked;document.getElementById('status').textContent='Clover securely handles your card details. Your mailbox activates after required setup.'}
-ack.addEventListener('change',refresh);pay.addEventListener('click',()=>{if(destination&&ack.checked)window.location.assign(destination)});refresh();
+ack.addEventListener('change',refresh);pay.addEventListener('click',()=>{if(destination&&ack.checked)window.location.assign(destination)});window.addEventListener('pageshow',()=>setTimeout(refresh,0));refresh();
 </script><noscript><p style="padding:24px;text-align:center">Please call <a href="tel:+12814996245">281-499-6245</a> to arrange your mailbox.</p></noscript></body></html>
